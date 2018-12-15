@@ -4,5 +4,5 @@ using namespace std;
 
 int main(int argc, char const *argv[])
 {
-    c03e08();
+    c03e10();
 }
