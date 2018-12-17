@@ -2,8 +2,10 @@ cmake_minimum_required (VERSION 3.0)
 
 set(CXXFLAGS = -std=c++17 -Wconversion -Wall -Werror -Wextra -pedantic)
 file( GLOB SRC_CH_03 Chapters/Ch3/*.cc )
+file( GLOB SRC_CH_04 Chapters/Ch4/*.cc )
 add_library(strstrlib
 ${SRC_CH_03}
+${SRC_CH_04}
 )
 project (Stroustrup-exs)
 include_directories (
