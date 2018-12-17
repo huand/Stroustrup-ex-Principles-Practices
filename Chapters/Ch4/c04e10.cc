@@ -8,29 +8,43 @@ int NumberOfRounds();
 
 int myTurn(vector<string>);
 int pcTurn(vector<string>);
-int didiwin(int, int);
-void plotscore(int, int, int);
+int didiwin(int, int, vector<string>);
+void plotscore(int &, int &, int &);
+void updatescore(int &myscore, int &pcscore, int &iwin);
 void c04e10()
 {
     vector<string> sRPS = {"rock", "paper", "scissors"};
     int myscore = 0;
     int pcscore = 0;
+    int iwin = 0;
     int N = NumberOfRounds();
-    while (myscore < N && pcscore << N)
+    plotscore(myscore, pcscore, iwin);
+    while (myscore < N && pcscore < N)
     {
         std::cout << "########################\n";
         int myind = myTurn(sRPS);
         int pcind = pcTurn(sRPS);
-        int iwin = didiwin(myind, pcind);
-        void plotscore(int myscore, int pcscore, int iwin);
+        iwin = didiwin(myind, pcind, sRPS);
+        updatescore(myscore, pcscore, iwin);
+        plotscore(myscore, pcscore, iwin);
+    }
+    cout << "########################\n";
+    if (myscore == N)
+    {
+        cout << "Congratulations! You won!\n";
+    }
+    else
+    {
+        cout << "you lost :| better luck next time!";
     }
 }
 
 int NumberOfRounds()
 {
-    cout << "how many rounds won to win a game?";
+    cout << "how many rounds won to win a game?: ";
     int N;
     cin >> N;
+    cin.ignore();
     return N;
 }
 
@@ -69,20 +83,18 @@ int didiwin(int myind, int pcind, vector<string> sRPS)
     }
     else
     {
-
-        switch (myind)
-            if (sRPS[myind] == "rock")
-            {
-                iwin = pcind == scissors ? 1 : -1;
-            }
-            else if (sRPS[myind] == "paper")
-            {
-                iwin = pcind == rock ? 1 : -1;
-            }
-            else if (sRPS[myind] == "scissors")
-            {
-                iwin = pcind == paper ? 1 : -1;
-            }
+        if (sRPS[myind] == "rock")
+        {
+            iwin = sRPS[pcind] == "scissors" ? 1 : -1;
+        }
+        else if (sRPS[myind] == "paper")
+        {
+            iwin = sRPS[pcind] == "rock" ? 1 : -1;
+        }
+        else if (sRPS[myind] == "scissors")
+        {
+            iwin = sRPS[pcind] == "paper" ? 1 : -1;
+        }
     }
     return iwin;
 }
@@ -93,17 +105,27 @@ void plotscore(int &myscore, int &pcscore, int &iwin)
     if (iwin == 1)
     {
         winner = "you win the round";
-        myscore++;
     }
     else if (iwin == -1)
     {
         winner = "computer wins the round";
-        pcscore++;
     }
     else if (iwin == 0)
     {
-        std::cout << "ex aequo\n";
+        winner = "ex aequo";
     }
     std::cout << winner << endl;
     std::cout << "you: " << myscore << "-" << pcscore << " :pc\n";
+}
+
+void updatescore(int &myscore, int &pcscore, int &iwin)
+{
+    if (iwin == 1)
+    {
+        myscore++;
+    }
+    else if (iwin == -1)
+    {
+        pcscore++;
+    }
 }
