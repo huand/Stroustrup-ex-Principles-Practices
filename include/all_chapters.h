@@ -4,5 +4,7 @@
 #include "Chapt_headers/Chapt03.h"
 #include "Chapt_headers/Chapt04.h"
 #include "Chapt_headers/Chapt05.h"
+#include "Chapt_headers/Chapt06.h"
+#include "Chapt_headers/Chapt07.h"
 
 #endif  // INCLUDE_ALL_CHAPTERS_H_

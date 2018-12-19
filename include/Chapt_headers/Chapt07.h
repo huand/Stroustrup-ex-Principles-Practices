@@ -1,0 +1,7 @@
+// Copyright 2018 Hubert Andre
+#ifndef INCLUDE_CHAPT_HEADERS_CHAPT07_H_
+#define INCLUDE_CHAPT_HEADERS_CHAPT07_H_
+
+void c07e123();
+
+#endif  // INCLUDE_CHAPT_HEADERS_CHAPT07_H_
